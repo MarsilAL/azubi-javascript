@@ -6,7 +6,7 @@ describe('arrays', function () {
 
             let givenArray = [1, 2, 3];
             let actual = givenArray.length;
-            let expected = '???';
+            let expected = 3;
 
             assert.deepEqual(actual, expected);
         });
@@ -16,60 +16,60 @@ describe('arrays', function () {
             let givenArray = [1, 2, 3];
             let copiedArray = Array.from(givenArray); // copies array
 
-            let trueOrFalse = false; // fix me
+            let trueOrFalse = true; // fix me
             let sameLength = givenArray.length == copiedArray.length;
 
             assert.deepEqual(sameLength, trueOrFalse);
         });
-
+//3
         it('add element', function () {
 
             let givenArray = [1, 2, 3];
             let expected = [1,2,3,4];
 
-            givenArray.push() // fix me
+            givenArray.push(4) // fix me
 
             let actual = Array.from(givenArray);
             assert.deepEqual(actual, expected);
         });
-
+//4
         it('add multiple elements', function () {
 
             let givenArray = [1, 2, 3];
             let expected = [1,2,3,4,5,6,7];
 
-            givenArray.push() // fix me
+            givenArray.push(4, 5, 6, 7) // fix me
 
             assert.deepEqual(givenArray, expected);
         });
-
+//5
         it('access element', function () {
 
             let givenArray = [1, 2, 3];
             let actual = givenArray[2];
 
-            let expected = '???';
+            let expected = 3;
 
             assert.deepEqual(actual, expected);
         });
-
+//6
         it('access index of element', function () {
 
             let givenArray = ['a', 'b', 'c', 'd', 'a', 'b'];
             let actual = givenArray.indexOf('c');
-            let expected = '???';
+            let expected = 2;
 
             assert.deepEqual(actual, expected);
         });
 
-
+//7
         it('concat arrays', function () {
 
             let firstArray = [1,2,3];
             let secondArray = [4,5,6];
 
             let actual = firstArray.concat(secondArray);
-            let expected = '???';
+            let expected = [1,2,3,4,5,6];
 
             assert.deepEqual(actual, expected);
         });
@@ -78,14 +78,14 @@ describe('arrays', function () {
 
             let firstArray = [1,2,3];
             let seperator = ', ';
-
+//8
             let actual = firstArray.join(seperator);
-            let expected = '???';
+            let expected = '1, 2, 3';
 
             assert.deepEqual(actual, expected);
         });
 
-
+//9
         it('remove element at position', function () {
 
             let givenArray = [1,2,3,4,5,6];
@@ -93,12 +93,12 @@ describe('arrays', function () {
             let idx = givenArray.indexOf(4);
             givenArray.splice(idx, 1)
             
-            let expected = '????';
+            let expected = [1,2,3,5,6];
 
             assert.deepEqual(givenArray, expected);
         });
 
-
+//10
         it('forEach element do something', function () {
 
             let givenArray = [1,2,3,4,5,6];
@@ -107,11 +107,11 @@ describe('arrays', function () {
             givenArray.forEach(function(element, idx) {
                 sum += element + idx;
             });
-            let expected = '????';
+            let expected = 36;
 
             assert.equal(sum, expected);
         });
-
+//11
 
         it('forEach element call a func', function () {
 
@@ -122,29 +122,29 @@ describe('arrays', function () {
 
             let sum = 0;
             givenArray.forEach(sumFunc);
-            let expected = '????';
+            let expected = 21;
 
             assert.equal(sum, expected);
         });
-
+//12
         it('is Array', function () {
 
             let givenArray = [1,2,3,4,5,6];
             
             let actual = Array.isArray(givenArray);
-            let expected = '???';
+            let expected = true;
 
             assert.equal(actual, expected);
         });
 
-
+//13
         it('check each element in array', function () {
 
             function isPositive(element) {
                 return element >= 0;
             }
             let givenArray = [1,2,3,4,5,6, -1];
-            let expected = '????';
+            let expected = false;
             let actual = givenArray.every(isPositive)
 
             assert.equal(actual, expected);

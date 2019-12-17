@@ -3,14 +3,14 @@ var assert = require('assert');
 describe('objects', function () {
     describe('keys()', function () {
         it('should return ??? of an empty object', function () {
-
+//1
             let givenObject = {};
             let actual = Object.keys(givenObject);
-            let expected = '???';
+            let expected = "";
 
             assert.equal(actual, expected);
         });
-
+//2
         it('should return ??? of an object with keys', function () {
 
             let givenObject = {
@@ -19,12 +19,12 @@ describe('objects', function () {
                 c: true
             };
             let actual = Object.keys(givenObject);
-            let expected = '???';
+            let expected = ['a', 'b', 'c'];
 
             assert.deepEqual(actual, expected);
         });
     });
-
+//3
     describe('functions', function () {
         it('access key of object', function() {
 
@@ -33,11 +33,11 @@ describe('objects', function () {
                 lastName: 'doe'
             };
             let actual = [givenObject.firstName, givenObject.lastName].join(' ');
-            let expected = '???';
+            let expected = "john doe";
 
             assert.equal(actual, expected);
         });
-
+//4
         it('access key of object alternative', function() {
 
             let givenObject = {
@@ -47,11 +47,11 @@ describe('objects', function () {
             let x = givenObject['lastName'];
             let y = givenObject['firstName'];
             let actual = `my Name is ${y} and a born ${x}!`;
-            let expected = '???';
+            let expected = `my Name is john and a born doe!`;
 
             assert.equal(actual, expected);
         });
-
+//5 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         it('adding new properties to the object', function() {
 
             let givenObject = {
@@ -63,11 +63,11 @@ describe('objects', function () {
             givenObject.fullName = x + ', ' + y;
 
             let actual = Object.keys(givenObject);
-            let expected = '???';
+            let expected = ['firstName', 'lastName', 'fullName'];
 
             assert.deepEqual(actual, expected);
         });
-
+//6
         it('deleting properties of an object', function() {
 
             let givenObject = {
@@ -78,7 +78,7 @@ describe('objects', function () {
             delete givenObject.firstName;
 
             let actual = Object.keys(givenObject);
-            let expected = '???';
+            let expected = [ 'lastName' ];
 
             assert.deepEqual(actual, expected);
         });
