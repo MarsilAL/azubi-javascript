@@ -6,13 +6,13 @@ describe('functions', function () {
 
             function noop() {}
             
-            let expected = '???';
+            let expected = undefined;
 
             let actual = noop();
 
             assert.equal(actual, expected);
         });
-
+//2
         it('return value', function () {
 
             function returnRandomNumber() { 
@@ -20,11 +20,11 @@ describe('functions', function () {
             }
 
             let actual = returnRandomNumber();
-            let expected = '???' < actual && actual < '???';
+            let expected = false < actual && actual < true
 
             assert.equal(true, expected);
         });
-
+//3
         it('return value exits the function', function () {
 
             function returnRandomNumber() { 
@@ -33,12 +33,13 @@ describe('functions', function () {
             }
 
             let actual = returnRandomNumber();
-            let expected = '???';
+            let expected = 123;
 
             assert.equal(actual, expected);
 
         });        
     });
+//4    
     describe('interaction', function () {
         it('can access external variables', function () {
 
@@ -48,11 +49,11 @@ describe('functions', function () {
             }
 
             let actual = returnNumber();
-            let expected = '???';
+            let expected = 432;
 
             assert.equal(actual, expected);
         });
-
+//5
         it('can shadows external variables with local variables', function () {
 
             var number = 432;
@@ -62,11 +63,11 @@ describe('functions', function () {
             }
 
             let actual = returnNumber();
-            let expected = '???';
+            let expected = 5432;
 
             assert.equal(actual, expected);
         });
-
+//6
         it('can access shadows external variables', function () {
 
             // access number before number is declared
@@ -79,11 +80,11 @@ describe('functions', function () {
             var number = 432;
 
             let actual = returnNumber();
-            let expected = '???';
+            let expected = 5432;
 
             assert.equal(actual, expected);
         });
-
+//7
 
         it('has arguments', function () {
 
@@ -95,11 +96,11 @@ describe('functions', function () {
 
             returnNumber(1,2);
             let actual = Object.keys(args);
-            let expected = '???';
+            let expected = ['0', '1'];
 
-            assert.equal(actual, expected);
+            assert.deepEqual(actual, expected);
         });
-
+//8
         it('can has many arguments', function () {
 
             var args = null;
@@ -110,12 +111,12 @@ describe('functions', function () {
 
             returnNumber(1,2,3,'a', 'b');
             let actual = Object.keys(args);
-            let expected = '???';
+            let expected = ['0', '1', '2', '3', '4'];
 
-            assert.equal(actual, expected);
+            assert.deepEqual(actual, expected);
         });
     });
-
+//8
     describe('fun with functions', function() {
         it('self invocation', function () {
 
@@ -125,13 +126,13 @@ describe('functions', function () {
                 return sum;
             })(1,2,3,4,5)
             
-            let expected = '???';
+            let expected = 15;
 
             assert.equal(actual, expected);
         });
 
         it('self invocation for initialization and data hiding', function () {
-
+//9
 
             function initCounter() {
 
@@ -147,7 +148,7 @@ describe('functions', function () {
             count();
 
             let actual = count();
-            let expected = '???';
+            let expected = 3;
 
             assert.equal(actual, expected);
         });
