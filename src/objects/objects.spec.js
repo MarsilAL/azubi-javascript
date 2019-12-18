@@ -24,8 +24,8 @@ describe('objects', function () {
             assert.deepEqual(actual, expected);
         });
     });
-//3
-    describe('functions', function () {
+
+    describe('actions', function () {
         it('access key of object', function() {
 
             let givenObject = {
