@@ -11,3 +11,10 @@ definition is associating the task or the meaning with the prototype.
 - What is hoisting again? What scopes does javascript use? List them!
 
 Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
+
+function sum(n1, n2, ){
+    var summe;
+    console.log(peter)
+    console.log(summe)
+    summe = n1 + n2;
+}

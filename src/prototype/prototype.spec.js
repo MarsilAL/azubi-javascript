@@ -1,7 +1,7 @@
 var assert = require('assert');
 
 describe('prototypes', function () {
-
+//1
     it('are attached to an object ', function () {
 
         function User() { }
@@ -13,12 +13,12 @@ describe('prototypes', function () {
         var u = new User();
 
         let actual = u.sayHello();
-        let expected = '???';
+        let expected = "hello";
 
         assert.equal(actual, expected);
 
     });
-
+//2
     it('can access data on the parent object once instantiated', function () {
 
         function User() {
@@ -32,12 +32,12 @@ describe('prototypes', function () {
         var u = new User();
 
         let actual = u.sayHello();
-        let expected = '???';
+        let expected = "Hello, my name is Sam!";
 
         assert.equal(actual, expected);
 
     });
-
+//3 !!!
     it('have something to do with scope', function testMethod() {
 
 
@@ -50,14 +50,14 @@ describe('prototypes', function () {
         }
 
         // !!!! BEWARE, I forgot the 'new' keyword on purpose !!!!
-        var u = User();
+        var u = new User();
 
         let actual = u.sayHello();
-        let expected = '???';
+        let expected = 'Hello, my name is Sam!';
 
         assert.equal(actual, expected);
     });
-
+//4
     it('can be used to create new instances; tested by "instanceof"', function testMethod() {
 
         function User() {
@@ -70,11 +70,11 @@ describe('prototypes', function () {
         var u = new User();
 
         let actual = u instanceof User;
-        let expected = '???';
+        let expected = true;
 
         assert.equal(actual, expected);
     });
-
+//5
     it('can be used to create many objects / instances', function testMethod() {
 
         // User function is being treated as a constructor function
@@ -98,11 +98,11 @@ describe('prototypes', function () {
             actual.push(greeting);
         })
 
-        let expected = '???';
+        let expected = ['I am Peter.', 'I am Paul.', 'I am Merry.'];
 
         assert.deepEqual(actual, expected);
     });
-
+//6
     it('Different constructor functions, same prototypes, same instanceof ?', function testMethod() {
 
         function sayHello() {
@@ -119,11 +119,11 @@ describe('prototypes', function () {
 
         let actual = u instanceof Person;
 
-        let expected = '???';
+        let expected = false;
 
         assert.equal(actual, expected);
     });
-
+//7
     it('Every object in JS has some prototype methods already set, override?', function testMethod() {
 
         function Account(userId, pwd) {
@@ -137,11 +137,11 @@ describe('prototypes', function () {
         var a = new Account("peter", "abc123");
         let actual = "" + a;
 
-        let expected = '???';
+        let expected = '[user="peter", hash=abc123]';
         assert.equal(actual, expected);
     });
 
-
+//* 8 !!!
     it('You can even override existing prototypes', function testMethod() {
 
         // let's save the original version of toString for later
@@ -154,7 +154,7 @@ describe('prototypes', function () {
 
         var o = { a: 1, b: 2 };
         let actual = "" + o;
-        let expected = '???';
+        let expected = 'I am object';
 
         // reset the overriden toString method back to original
         Object.prototype.toString = oldToString;
@@ -162,7 +162,7 @@ describe('prototypes', function () {
         assert.equal(actual, expected);
     });
 
-
+//9
     it('You can use prototypes to create inheritance', function testMethod() {
 
         // GeometricObject represents a geometric figure that 
@@ -192,10 +192,10 @@ describe('prototypes', function () {
         var rec2 = new Rectangle(5, 5);
         let actual = `${rec1} and ${rec2} are cool`;
 
-        let expected = '???';
+        let expected = 'I am a Rectangle with an area of 50 and I am a Rectangle with an area of 25 are cool';
         assert.equal(actual, expected);
     });
-
+//10
     it('You can compare prototypes', function testMethod() {
 
         function NamedThing() {
@@ -209,10 +209,10 @@ describe('prototypes', function () {
 
         var actual = Object.getPrototypeOf(namedInstance) == NamedThing.prototype;
 
-        let expected = '???';
+        let expected = true;
         assert.equal(actual, expected);
     });
-
+//11
     it('You can use prototypes to "make sure" that methods exist', function testMethod() {
 
         function Greeter(name) { this.name = name; }
@@ -239,8 +239,8 @@ describe('prototypes', function () {
 
         var actual = greetings;
 
-        let expected = '???';
-        assert.equal(actual, expected);
+        let expected = [ 'Hello, I am peter', 'Hello, I am Paul' ];
+        assert.deepEqual(actual, expected);
     });
 
 
